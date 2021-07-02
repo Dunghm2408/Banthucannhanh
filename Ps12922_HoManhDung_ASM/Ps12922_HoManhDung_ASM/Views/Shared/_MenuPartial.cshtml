@@ -1,0 +1,22 @@
+﻿@using Ps12922_HoManhDung_ASM.Models
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Extensions
+@using Ps12922_HoManhDung_ASM.Constant
+
+@{string userName = Context.Session.GetString(SessionKey.Nguoidung.UserName); }
+@if (userName != null && userName != "")
+{
+    <li class="nav-item">
+        <a class="nav-link font-weight-bold"  id="naitem" asp-area="" asp-controller="Nguoidung" asp-action="Index"><i class="fas fa-user" style="color:#eb34bd;"></i>   Quản trị</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link font-weight-bold "  id="naitem" asp-area="" asp-controller="MonAn" asp-action="Index"><i class="fas fa-utensils" style="color:#eb34bd;"></i>    Món ăn</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link font-weight-bold "  id="naitem" asp-area="" asp-controller="Donhang" asp-action="Index"><i class="fas fa-file-invoice" style="color:#eb34bd;"></i>     Đơn hàng</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link font-weight-bold "   id="naitem" asp-area="" asp-controller="Khachhang" asp-action="Index"><i class="fas fa-user" style="color:#eb34bd;"></i>   Khách hàng</a>
+    </li>
+}
+

@@ -1,0 +1,27 @@
+﻿@using Ps12922_HoManhDung_ASM.Models
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Extensions
+@using Ps12922_HoManhDung_ASM.Constant
+
+@{string userName = Context.Session.GetString(SessionKey.Nguoidung.UserName);}
+@{string fullName = Context.Session.GetString(SessionKey.Nguoidung.FullName);}
+
+<ul class="navbar-nav">
+    @if (userName != null && userName != "")
+    {
+        <li class="nav-item font-weight-bold">
+            <a id="manage"  id="naitem" class="nav-link" >Xin Chào @fullName!</a>
+        </li>
+        <li class="nav-item">
+            <form asp-area="" asp-controller="Admin" asp-action="Logout" method="post" id="logoutForm">
+                <button id="naitem" id="logout" type="submit" class="nav-link btn btn-link font-weight-bold"><i class="fas fa-sign-out-alt" style="color:#eb34bd;"></i>  Đăng xuất</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link font-weight-bold  "  id="naitem" id="login" href="/Admin/Login"><i class="fas fa-sign-in-alt" style="color:#eb34bd;"></i>  Đăng nhập</a>
+        </li>
+    }
+</ul>
